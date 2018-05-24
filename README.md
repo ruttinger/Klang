@@ -1,2 +1,2 @@
 # Klang
-Music application that brings Spotify, iTunes and Soundcloud together into one place. Listen to your favourite songs and playlists.
+An ASP.NET Project that involves the Spotify API. Furthermore we will try to create an algorithm that creates a playlist with songs of the most listened artists.
