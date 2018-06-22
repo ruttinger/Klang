@@ -1,5 +1,7 @@
 ﻿body {
     font-family: spotify-circular,Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,Meiryo,MS Gothic,sans-serif;
+    background-color: #1c2953;
+    overflow: hidden;
 }
 header {
     background-color: lightgray;
@@ -16,6 +18,7 @@ aside {
     clear: both;
     float: left;
     display: inline-block;
+    background-color: #162042;
 }
 article {
     clear: both;
@@ -23,11 +26,18 @@ article {
     display: inline-block;
 }
 footer {
-    background-color: gray;
+    color: white;
     margin-bottom: 50px;
     margin-top: 50px;
     width: 100%;
     clear: both;
+    background-color: #1a53ff;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 .tablink {
@@ -35,6 +45,12 @@ footer {
     outline: none;
     cursor: pointer;
     width: 25%;
+    margin-top: 20px;
+}
+.imgIcon {
+    float: left;
+    -webkit-filter: grayscale(1) invert(1);
+    filter: grayscale(1) invert(1);
 }
 
 #imgLogo {
@@ -57,3 +73,4 @@ footer {
 #tabs {
     list-style-type: none;
 }
+
