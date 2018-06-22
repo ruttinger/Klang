@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="yoda.master.cs" Inherits="SpotifyAPIApplication.yoda" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><%: Page.Title %></title>
+
+    <%--stylesheet--%>
+    <link rel="stylesheet" type="text/css" href="~/Style/Default.css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <div>
+                    <img id="imgLogo" src="https://cdn.freebiesupply.com/logos/large/2x/spotify-2-logo-png-transparent.png" width="40" height="40" />
+                    <h1 id="title">Klang</h1>
+                </div>
+            </header>
+            <aside>
+                <div>
+                    <ul id="tabs">
+                        <li>
+                            <asp:TextBox runat="server" ID="searchBar" TextMode="Search" AutoCompleteType="Search" placeholder="Search..." />
+                            <asp:Button id="btnSearch" runat="server" OnClick="btnSearch_Click"/>
+                        </li>
+                        <li class="tablink" id="tabPlaylist">
+                            <asp:Button runat="server" ID="btnPlaylist" OnClick="btnPlaylist_Click" title="Playlist" Text="Playlist" />
+                        </li>
+                        <li class="tablink" id="tabArtist">
+                            <button id="btnArtist" title="Artist">Artist</button>
+                        </li>
+                        <li class="tablink" id="tabHistory">
+                            <button id="btnHistory" title="History">History</button>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <article id="mainArticle">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+            </article>
+            <footer>
+                <div>
+                    <img id="playButton" src="http://www.lynnettechadwick.com/wp-content/uploads/2015/04/play-button.png" width="30" height="30" onclick="playSong();" />
+                </div>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

@@ -10,6 +10,6 @@
 namespace SpotifyAPIApplication {
     
     
-    public partial class Default {
+    public partial class Artist {
     }
 }

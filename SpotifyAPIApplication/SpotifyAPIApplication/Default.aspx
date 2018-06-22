@@ -1,16 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SpotifyAPIApplication.Default" %>
+﻿<%@ Page Title="Klang" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SpotifyAPIApplication.Default" MasterPageFile="~/yoda.Master"%>
 
-<!DOCTYPE html>
+<asp:Content class="MainClass" ContentPlaceHolderID="MainContent" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-        
-    </div>
-    </form>
-</body>
-</html>
+    <p>Hallo</p>
+
+</asp:Content>
