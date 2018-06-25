@@ -25,7 +25,7 @@
                 <div>
                     <ul id="tabs">
                         <li>
-                            <asp:TextBox runat="server" ID="searchBar" TextMode="Search" AutoCompleteType="Search" placeholder="Search..."/>
+                            <asp:TextBox runat="server" ID="searchBar"  AutoCompleteType="Search" placeholder="Search..."/>
                             <asp:Button id="btnSearch" runat="server" Style="display: none" OnClick="btnSearch_Click"/>
                         </li>
                         <li class="tablink" id="tabPlaylist">

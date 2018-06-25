@@ -10,6 +10,7 @@ using SpotifyAPI.Web.Models;
 using SpotifyAPI.Web.Auth;
 using Nito.AsyncEx;
 using System.Data;
+using System.Text;
 
 namespace SpotifyAPIApplication
 {
@@ -18,33 +19,19 @@ namespace SpotifyAPIApplication
         private static SpotifyWebAPI _spotify;
         SearchItem _search;
 
-        public string searchTxt = "damn";
+        string searchTxt;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            searchTxt = Request.QueryString["search"];
             AsyncContext.Run(() => MainAsync());
 
             _search = _spotify.SearchItems(searchTxt, SearchType.Album);
 
             List<SimpleAlbum> nList = new List<SimpleAlbum>(_search.Albums.Items);
 
-            //DataTable dt = new DataTable();
-            //dt.Columns.AddRange(new DataColumn[1]
-            //{
-            //    new DataColumn("Album-Name",typeof(string))
-            //});
-            //foreach (var album in nList)
-            //{
-            //    if (dt.Select().ToList().Exists(row => row["Album-Name"].ToString().ToUpper() == album.Name))
-            //    {
-                    
-            //    }
-            //    dt.Columns.Add(new DataColumn(album.Name, typeof(string)));
-            //}
-            //for (int i = 0; i < dt.Columns.Count; i++)
-            //{
-            //    lblAlbums.Text = dt.Rows[i][0].ToString();
-            //}
+            gvResult.DataSource = nList;
+            gvResult.DataBind();
         }
 
         static async void MainAsync()
