@@ -30,7 +30,15 @@ namespace SpotifyAPIApplication
 
             List<SimpleAlbum> nList = new List<SimpleAlbum>(_search.Albums.Items);
 
-            gvResult.DataSource = nList;
+            List<string> filteredList = new List<string>();
+
+            for (int i = 0; i < nList.Count; i++)
+            {
+                string [] output = new string[] {nList[i].Name,nList[i].Type};
+                filteredList.InsertRange(filteredList.Count,output);
+            }
+
+            gvResult.DataSource = filteredList;
             gvResult.DataBind();
         }
 
