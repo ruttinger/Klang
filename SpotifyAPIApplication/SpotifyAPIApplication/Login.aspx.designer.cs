@@ -10,42 +10,51 @@
 namespace SpotifyAPIApplication {
     
     
-    public partial class Search {
+    public partial class Login {
         
         /// <summary>
-        /// lblAlbums control.
+        /// txtUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAlbums;
+        protected global::System.Web.UI.WebControls.TextBox txtUser;
         
         /// <summary>
-        /// gvArtist control.
+        /// txtPw control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvArtist;
+        protected global::System.Web.UI.WebControls.TextBox txtPw;
         
         /// <summary>
-        /// gvAlbum control.
+        /// btnLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAlbum;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
         
         /// <summary>
-        /// gvTrack control.
+        /// chkbxRemember control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTrack;
+        protected global::System.Web.UI.WebControls.CheckBox chkbxRemember;
+        
+        /// <summary>
+        /// lblOutput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOutput;
     }
 }

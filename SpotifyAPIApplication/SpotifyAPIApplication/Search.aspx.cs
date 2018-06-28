@@ -23,36 +23,57 @@ namespace SpotifyAPIApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Searchtoken übernehmen
             searchTxt = Request.QueryString["search"];
+
+            //Authentifizierung
             AsyncContext.Run(() => MainAsync());
 
-            _search = _spotify.SearchItems(searchTxt, SearchType.Album | SearchType.Artist);
+            //SearchItem mit dem übergegebenen Searchtoken zuweisen
+            _search = _spotify.SearchItems(searchTxt, SearchType.Album | SearchType.Artist | SearchType.Track);
+            
+            //Listen erstellen
+            List<SimpleAlbum> listAlbums = new List<SimpleAlbum>(_search.Albums.Items);
 
-            List<SimpleAlbum> nListAlbum = new List<SimpleAlbum>(_search.Albums.Items);
+            List<FullArtist> listArtists = new List<FullArtist>(_search.Artists.Items);
 
-            List<FullArtist> nListArtist = new List<FullArtist>(_search.Artists.Items);
+            List<FullTrack> listTracks = new List<FullTrack>(_search.Tracks.Items);
 
-
+            //Filterlisten erstellen
             List<string> filteredAlbum = new List<string>();
+
             List<string> filteredArtist = new List<string>();
 
-            for (int i = 0; i < nListAlbum.Count; i++)
+            List<string> filteredTrack = new List<string>();
+
+            //Werte in Filtertabelle
+            for (int i = 0; i < listAlbums.Count; i++)
             {
-                string [] output = new string[] {nListAlbum[i].Name};
+                string [] output = new string[] {listAlbums[i].Name};
                 filteredAlbum.InsertRange(filteredAlbum.Count,output);
             }
 
-            for (int i = 0; i < nListArtist.Count; i++)
+            for (int i = 0; i < listArtists.Count; i++)
             {
-                string[] output = new string[] { nListArtist[i].Name };
+                string[] output = new string[] { listArtists[i].Name };
                 filteredArtist.InsertRange(filteredArtist.Count, output);
             }
 
+            for (int i = 0; i < listTracks.Count; i++)
+            {
+                string[] output = new string[] { listTracks[i].Name };
+                filteredTrack.InsertRange(filteredTrack.Count, output);
+            }
+
+            //Filtertabelle zu GridView
             gvAlbum.DataSource = filteredAlbum;
             gvAlbum.DataBind();
 
             gvArtist.DataSource = filteredArtist;
             gvArtist.DataBind();
+
+            gvTrack.DataSource = filteredTrack;
+            gvTrack.DataBind();
         }
 
         static async void MainAsync()
