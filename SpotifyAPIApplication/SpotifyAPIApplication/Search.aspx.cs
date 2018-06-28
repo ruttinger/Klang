@@ -26,20 +26,33 @@ namespace SpotifyAPIApplication
             searchTxt = Request.QueryString["search"];
             AsyncContext.Run(() => MainAsync());
 
-            _search = _spotify.SearchItems(searchTxt, SearchType.Album);
+            _search = _spotify.SearchItems(searchTxt, SearchType.Album | SearchType.Artist);
 
-            List<SimpleAlbum> nList = new List<SimpleAlbum>(_search.Albums.Items);
+            List<SimpleAlbum> nListAlbum = new List<SimpleAlbum>(_search.Albums.Items);
 
-            List<string> filteredList = new List<string>();
+            List<FullArtist> nListArtist = new List<FullArtist>(_search.Artists.Items);
 
-            for (int i = 0; i < nList.Count; i++)
+
+            List<string> filteredAlbum = new List<string>();
+            List<string> filteredArtist = new List<string>();
+
+            for (int i = 0; i < nListAlbum.Count; i++)
             {
-                string [] output = new string[] {nList[i].Name,nList[i].Type};
-                filteredList.InsertRange(filteredList.Count,output);
+                string [] output = new string[] {nListAlbum[i].Name};
+                filteredAlbum.InsertRange(filteredAlbum.Count,output);
             }
 
-            gvResult.DataSource = filteredList;
-            gvResult.DataBind();
+            for (int i = 0; i < nListArtist.Count; i++)
+            {
+                string[] output = new string[] { nListArtist[i].Name };
+                filteredArtist.InsertRange(filteredArtist.Count, output);
+            }
+
+            gvAlbum.DataSource = filteredAlbum;
+            gvAlbum.DataBind();
+
+            gvArtist.DataSource = filteredArtist;
+            gvArtist.DataBind();
         }
 
         static async void MainAsync()

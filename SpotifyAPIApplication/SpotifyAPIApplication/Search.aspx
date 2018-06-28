@@ -7,5 +7,6 @@
 
 
     <asp:Label ID="lblAlbums" runat="server"/>
-    <asp:GridView runat="server" ID="gvResult" CssClass="GridView" ForeColor="White"></asp:GridView>
+    <asp:GridView runat="server" ID="gvAlbum" CssClass="GridView" ForeColor="White"></asp:GridView>
+    <asp:GridView runat="server" ID="gvArtist" CssClass="GridView" ForeColor="White"></asp:GridView>
 </asp:Content>

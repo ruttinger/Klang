@@ -50,6 +50,9 @@ a {
     -webkit-filter: grayscale(1) invert(1);
     filter: grayscale(1) invert(1);
 }
+.GridView {
+    float: left;
+}
 
 #imgLogo {
     float: left;
@@ -70,4 +73,5 @@ a {
 #tabs {
     list-style-type: none;
 }
+
 
