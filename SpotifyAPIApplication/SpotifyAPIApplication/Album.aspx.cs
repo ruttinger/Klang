@@ -1,27 +1,21 @@
-﻿using System;
+﻿using SpotifyAPI.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Data;
+
 
 namespace SpotifyAPIApplication
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Album : System.Web.UI.Page
     {
-        
-        
+        public FullAlbum faAlbum;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            faAlbum = new FullAlbum();
+            faAlbum.Id = Request.QueryString["album"];
         }
-
-        protected void btnLogin_Click(object sender, EventArgs e)
-        {  
-            
-        }
-
     }
 }

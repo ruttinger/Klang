@@ -39,6 +39,7 @@ namespace SpotifyAPIApplication
 
             List<FullTrack> listTracks = new List<FullTrack>(_search.Tracks.Items);
 
+
             //Filterlisten erstellen
             List<string> filteredAlbum = new List<string>();
 
@@ -65,6 +66,7 @@ namespace SpotifyAPIApplication
                 filteredTrack.InsertRange(filteredTrack.Count, output);
             }
 
+
             //Filtertabelle zu GridView
             gvAlbum.DataSource = filteredAlbum;
             gvAlbum.DataBind();
@@ -74,7 +76,28 @@ namespace SpotifyAPIApplication
 
             gvTrack.DataSource = filteredTrack;
             gvTrack.DataBind();
+
+            //Headercells benennen
+            foreach (TableCell cell in gvArtist.HeaderRow.Cells)
+            {
+                cell.Text = "Artist";
+            }
+            foreach (TableCell cell in gvAlbum.HeaderRow.Cells)
+            {
+                cell.Text = "Album";
+            }
+            foreach (TableCell cell in gvTrack.HeaderRow.Cells)
+            {
+                cell.Text = "Track";
+            }
+
+            //ROW BUTTON
+            for (int i = 0; i < gvAlbum.Rows.Count; i++)
+            {
+                gvAlbum.Rows[i].Attributes.Add("onclick", "javascript: window.location = 'Album.aspx?album="+listAlbums[i].Id+"'; ");
+            }
         }
+
 
         static async void MainAsync()
         {
@@ -97,6 +120,10 @@ namespace SpotifyAPIApplication
 
             if (_spotify == null)
                 return;
+        }
+        public void btnTemp()
+        {
+            gvAlbum.BackColor = System.Drawing.Color.Blue;
         }
     }
 }
