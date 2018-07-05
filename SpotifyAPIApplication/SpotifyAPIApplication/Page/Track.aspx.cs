@@ -40,12 +40,12 @@ namespace SpotifyAPIApplication
                 StreamReader reader = new StreamReader(responseStream);
                 string result = reader.ReadToEnd();
 
-                txtBox.Text = result;
-                var artistResult = new JavaScriptSerializer().Deserialize<ResArtist.RootObject>(result);
+                var trackResult = new JavaScriptSerializer().Deserialize<ResTrack.RootObject>(result);
 
                 ////OUTPUT OF ELEMENTS
-                txtBox.Text = artistResult.name;
-
+                lblTrckTitle.Text = trackResult.name;
+                imgTrckCover.ImageUrl = trackResult.album.images[0].url;
+                imgTrckCover.Width = 100;
             }
             catch (WebException ex)
             {

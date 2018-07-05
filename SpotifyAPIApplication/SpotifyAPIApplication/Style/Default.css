@@ -56,6 +56,14 @@ a {
     float: left;
     margin-left: 10px;
 }
+.articleDiv {
+    align-content: center;
+}
+.pageTitle {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+    font-weight: bold;
+}
 
 #imgLogo {
     float: left;
