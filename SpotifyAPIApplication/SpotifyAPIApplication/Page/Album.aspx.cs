@@ -17,20 +17,17 @@ namespace SpotifyAPIApplication
 {
     public partial class Album : System.Web.UI.Page
     {
-        public FullAlbum faAlbum;
 
         private static SpotifyWebAPI _spotify;
 
-        //SearchItem aSearch;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            faAlbum = new FullAlbum();
-            faAlbum.Id = Request.QueryString["album"];
+            string albumID;
+            albumID = Request.QueryString["album"];
 
             AsyncContext.Run(() => MainAsync());
 
-            string url = string.Format("https://api.spotify.com/v1/albums/"+faAlbum.Id);
+            string url = string.Format("https://api.spotify.com/v1/albums/"+albumID);
             var webrequest = (HttpWebRequest)WebRequest.CreateHttp(url);
             webrequest.Method = "GET";
             webrequest.Headers.Add("Authorization", "Bearer " + _spotify.AccessToken);
@@ -45,7 +42,8 @@ namespace SpotifyAPIApplication
                 
                 var albumResult = new JavaScriptSerializer().Deserialize<ResAlbum.RootObject>(result);
 
-                
+                //OUTPUT OF ELEMENTS
+                imgAlbum.ImageUrl = albumResult.images[0].url;
             }
             catch (WebException ex)
             {

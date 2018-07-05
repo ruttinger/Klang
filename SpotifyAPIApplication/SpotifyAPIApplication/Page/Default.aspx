@@ -2,6 +2,5 @@
 
 <asp:Content class="MainClass" ContentPlaceHolderID="MainContent" runat="server">
 
-    <p>Hallo</p>
 
 </asp:Content>

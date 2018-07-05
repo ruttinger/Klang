@@ -16,20 +16,21 @@ using SpotifyAPIApplication.Classes;
 
 namespace SpotifyAPIApplication
 {
-    public partial class Artist : System.Web.UI.Page
+    public partial class Track : System.Web.UI.Page
     {
         private static SpotifyWebAPI _spotify;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string artistID;
-            artistID = Request.QueryString["artist"];
+            string trackID;
+            trackID = Request.QueryString["track"];
 
             AsyncContext.Run(() => MainAsync());
 
-            string url = string.Format("https://api.spotify.com/v1/artists/" + artistID);
+            string url = string.Format("https://api.spotify.com/v1/tracks/" + trackID);
             var webrequest = (HttpWebRequest)WebRequest.CreateHttp(url);
             webrequest.Method = "GET";
             webrequest.Headers.Add("Authorization", "Bearer " + _spotify.AccessToken);
+
 
             try
             {
@@ -39,9 +40,10 @@ namespace SpotifyAPIApplication
                 StreamReader reader = new StreamReader(responseStream);
                 string result = reader.ReadToEnd();
 
+                txtBox.Text = result;
                 var artistResult = new JavaScriptSerializer().Deserialize<ResArtist.RootObject>(result);
 
-                //OUTPUT OF ELEMENTS
+                ////OUTPUT OF ELEMENTS
                 txtBox.Text = artistResult.name;
 
             }
@@ -54,8 +56,6 @@ namespace SpotifyAPIApplication
                         using (var reader = new StreamReader(errorResponse.GetResponseStream()))
                         {
                             string error = reader.ReadToEnd();
-                            //TODO: use JSON.net to parse this string and look at the error message
-                            txtBox.Text = error;
                         }
                     }
                 }

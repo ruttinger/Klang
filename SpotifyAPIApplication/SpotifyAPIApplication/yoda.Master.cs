@@ -19,9 +19,9 @@ namespace SpotifyAPIApplication
             
             //Switch to Search.aspx
             string currentSite = HttpContext.Current.Request.Url.AbsolutePath;
-            if (currentSite != "/Search.aspx?search=" + prevSearch)
+            if (currentSite != "~/Page/Search.aspx?search=" + prevSearch)
             {
-                Response.Redirect("~/Search.aspx?search=" + searchBar.Text);
+                Response.Redirect("~/Page/Search.aspx?search=" + searchBar.Text);
             }
             prevSearch = searchBar.Text;
             searchBar.Visible = false;

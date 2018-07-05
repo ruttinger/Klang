@@ -78,13 +78,13 @@ namespace SpotifyAPIApplication
             gvTrack.DataBind();
 
             //Headercells benennen
-            foreach (TableCell cell in gvArtist.HeaderRow.Cells)
-            {
-                cell.Text = "Artist";
-            }
             foreach (TableCell cell in gvAlbum.HeaderRow.Cells)
             {
                 cell.Text = "Album";
+            }
+            foreach (TableCell cell in gvArtist.HeaderRow.Cells)
+            {
+                cell.Text = "Artist";
             }
             foreach (TableCell cell in gvTrack.HeaderRow.Cells)
             {
@@ -95,6 +95,14 @@ namespace SpotifyAPIApplication
             for (int i = 0; i < gvAlbum.Rows.Count; i++)
             {
                 gvAlbum.Rows[i].Attributes.Add("onclick", "javascript: window.location = 'Album.aspx?album="+listAlbums[i].Id+"'; ");
+            }
+            for (int i = 0; i < gvArtist.Rows.Count; i++)
+            {
+                gvArtist.Rows[i].Attributes.Add("onclick", "javascript: window.location = 'Artist.aspx?artist=" + listArtists[i].Id + "'; ");
+            }
+            for (int i = 0; i < gvTrack.Rows.Count; i++)
+            {
+                gvTrack.Rows[i].Attributes.Add("onclick", "javascript: window.location = 'Track.aspx?track=" + listTracks[i].Id + "'; ");
             }
         }
 

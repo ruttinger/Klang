@@ -31,15 +31,15 @@
                         </li>
                         <li class="tablink" id="tabPlaylist">
                             <img src="https://cdn.icon-icons.com/icons2/1303/PNG/512/playlist_85829.png" width="20" height="20" class="imgIcon"/>
-                            <a href="Playlist.aspx" id="btnPlaylist" title="Playlist">Playlist</a>
+                            <a href="Page/Playlist.aspx" id="btnPlaylist" title="Playlist">Playlist</a>
                         </li>
                         <li class="tablink" id="tabArtist">
                             <img src="https://cdn.icon-icons.com/icons2/1524/PNG/512/person_106357.png" width="20" height="20" class="imgIcon"/>
-                            <a href="Artist.aspx" id="btnArtist" title="Artist">Artist</a>
+                            <a href="Page/Artist.aspx" id="btnArtist" title="Artist">Artist</a>
                         </li>
                         <li class="tablink" id="tabHistory">
                             <img src="https://cdn.icon-icons.com/icons2/1524/PNG/512/listunordered_106388.png" width="18" height="18" class="imgIcon" />
-                            <a href="History.aspx" id="btnHistory" title="History">History</a>
+                            <a href="Page/History.aspx" id="btnHistory" title="History">History</a>
                         </li>
                     </ul>
                 </div>

@@ -148,6 +148,7 @@
     </None>
     <Content Include="Page\Playlist.aspx" />
     <Content Include="Page\Search.aspx" />
+    <Content Include="Page\Track.aspx" />
     <Content Include="yoda.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ResArtist.cs" />
+    <Compile Include="Classes\ResTrack.cs" />
     <Compile Include="Page\Album.aspx.cs">
       <DependentUpon>Album.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -197,6 +200,13 @@
     </Compile>
     <Compile Include="Page\Playlist.aspx.designer.cs">
       <DependentUpon>Playlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Track.aspx.cs">
+      <DependentUpon>Track.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Track.aspx.designer.cs">
+      <DependentUpon>Track.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\ResAlbum.cs" />

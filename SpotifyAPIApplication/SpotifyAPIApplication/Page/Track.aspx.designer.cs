@@ -10,7 +10,7 @@
 namespace SpotifyAPIApplication {
     
     
-    public partial class Artist {
+    public partial class Track {
         
         /// <summary>
         /// txtBox control.
