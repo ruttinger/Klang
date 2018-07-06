@@ -17,7 +17,7 @@
     <form id="mainForm" runat="server">
         <div style="height:100%">
             <aside>
-                <div>
+                
                     <ul id="tabs">
                         <li>
                             <img id="imgLogo" src="https://cdn.freebiesupply.com/logos/large/2x/spotify-2-logo-png-transparent.png" width="40" height="40" />
@@ -42,7 +42,7 @@
                             <a href="Page/History.aspx" id="btnHistory" title="History">History</a>
                         </li>
                     </ul>
-                </div>
+                
             </aside>
             <article id="mainArticle">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>

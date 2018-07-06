@@ -1,6 +1,7 @@
 ﻿html {
     height: 100%;
 }
+
 body {
     font-family: spotify-circular,Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,Meiryo,MS Gothic,sans-serif;
     background-color: #1c2953;
@@ -9,6 +10,7 @@ body {
     background-image: linear-gradient(rgb(64, 89, 89), rgb(6, 9, 9) 85%);
     margin: 0;
 }
+
 header {
     background-color: lightgray;
     margin-bottom: 50px;
@@ -17,6 +19,7 @@ header {
     width: 100%;
     clear: both;
 }
+
 aside {
     width: 15%;
     clear: both;
@@ -25,11 +28,13 @@ aside {
     height: 100%;
     position: fixed;
 }
+
 article {
     clear: both;
     width: 100%;
     display: inline-block;
 }
+
 footer {
     color: white;
     margin-bottom: 50px;
@@ -37,7 +42,6 @@ footer {
     width: 100%;
     clear: both;
     background-color: #1a53ff;
-
 }
 
 a {
@@ -47,23 +51,29 @@ a {
 
 .tablink {
     border: none;
-    outline: none;
     cursor: pointer;
-    width: 25%;
     margin-top: 20px;
 }
+
+.tablink a {
+    margin-left: 5%;
+}
+
 .imgIcon {
     float: left;
     -webkit-filter: grayscale(1) invert(1);
     filter: grayscale(1) invert(1);
 }
+
 .GridView {
     float: left;
     margin-left: 10px;
 }
+
 .articleDiv {
     align-content: center;
 }
+
 .pageTitle {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: large;
@@ -72,45 +82,63 @@ a {
 
 #imgLogo {
     float: left;
-    vertical-align: central;
     cursor: pointer;
 }
+
 #title {
     float: left;
-    vertical-align: central;
-    margin-left: 10px;
+    position: absolute;
+    margin-left: 60px;
+    margin-top: 3px;
+    font-size: 30px;
+    font-style: italic;
+    color: #1ed760;
 }
+
 #playButton {
     display: block;
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
 }
+
 #tabs {
     list-style-type: none;
+    margin-left: -10%;
 }
+
 #divAlbum {
     color: white;
 }
+
 #tabSearch {
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    position: relative;
+    width: 74%;
+}
+
+#tabSearch input {
+    margin-top: 40px;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 17px;
+    margin-bottom: 20px;
 }
 
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
 }
+
 
 .SearchContainer {
     margin-left: 15%;
     margin-top: 10px;
 }
+
+
 
 
 /* Artist Page*/
