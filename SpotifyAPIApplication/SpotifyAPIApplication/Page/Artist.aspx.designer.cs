@@ -13,12 +13,30 @@ namespace SpotifyAPIApplication {
     public partial class Artist {
         
         /// <summary>
-        /// txtBox control.
+        /// imgArtistPicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBox;
+        protected global::System.Web.UI.WebControls.Image imgArtistPicture;
+        
+        /// <summary>
+        /// lblArtistListener control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblArtistListener;
+        
+        /// <summary>
+        /// lblArtistName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblArtistName;
     }
 }

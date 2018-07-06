@@ -29,7 +29,10 @@ namespace SpotifyAPIApplication
             string result = SpotifyResponse.respAlbum(artistID, _spotify, "https://api.spotify.com/v1/artists/");
             var artistResult = new JavaScriptSerializer().Deserialize<ResArtist.RootObject>(result);
 
-            
+            lblArtistName.Text = artistResult.name;
+            imgArtistPicture.ImageUrl = artistResult.images[0].url;
+            lblArtistListener.Text = artistResult.popularity.ToString() + "% Popularity";
+
         }
     }
 }
