@@ -7,9 +7,9 @@
         </div>
         <div id="divListTracks">
             <section class="tracklist-container">
-                <ol class="tracklist" id="olTracks" runat="server">
+                <ul class="tracklist" id="ulTracks" runat="server">
 
-                </ol>
+                </ul>
             </section>
         </div>
     </div>

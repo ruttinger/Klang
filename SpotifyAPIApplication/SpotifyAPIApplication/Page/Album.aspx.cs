@@ -38,17 +38,30 @@ namespace SpotifyAPIApplication
 
             foreach (var track in albumResult.tracks.items)
             {
-                HtmlGenericControl div = new HtmlGenericControl("div");
-                olTracks.Controls.Add(div);
-
                 HtmlGenericControl li = new HtmlGenericControl("li");
-                div.Controls.Add(li);
+                li.Attributes.Add("class","liAlbum");
 
-                HtmlGenericControl divName = new HtmlGenericControl("div");
-                divName.Attributes.Add("text", track.name);
-                li.Controls.Add(divName);
+                HtmlGenericControl div = new HtmlGenericControl("div");
+                div.Attributes.Add("class","divTracks");
+
+                //Name of Track
+                HtmlGenericControl pName = new HtmlGenericControl("p");
+                pName.InnerText = track.name;
+                pName.Attributes.Add("class", "pName");
                 
-                
+
+
+                //Duration of Track
+                HtmlGenericControl pDuration = new HtmlGenericControl("p");
+                pDuration.InnerText = track.duration_ms.ToString();
+                pDuration.Attributes.Add("class", "pDuration");
+
+                div.Controls.Add(pName);
+                div.Controls.Add(pDuration);
+
+                li.Controls.Add(div);
+
+                ulTracks.Controls.Add(li);
             }
         }
     }
