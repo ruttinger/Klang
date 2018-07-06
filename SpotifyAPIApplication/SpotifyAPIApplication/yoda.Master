@@ -16,12 +16,6 @@
 <body>
     <form id="mainForm" runat="server">
         <div style="height:100%">
-            <header>
-                <div>
-                    
-                    
-                </div>
-            </header>
             <aside>
                 <div>
                     <ul id="tabs">
