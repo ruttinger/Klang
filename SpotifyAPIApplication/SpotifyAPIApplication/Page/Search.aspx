@@ -1,16 +1,15 @@
 ﻿<%@ Page Title="Klang" Language="C#" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="SpotifyAPIApplication.Search" MasterPageFile="~/yoda.Master" %>
 
-    
+
 <asp:Content class="MainClass" ContentPlaceHolderID="MainContent" runat="server">
     <%--stylesheet--%>
     <link rel="stylesheet" type="text/css" href="~/Style/Default.css" />
-    
 
-    
-    <asp:gridview runat="server" id="gvAlbum" cssclass="GridView" forecolor="White" />
-    <asp:gridview runat="server" id="gvArtist" cssclass="GridView" forecolor="White" />
-    <asp:gridview runat="server" id="gvTrack" cssclass="GridView" forecolor="White" />
 
-    
+    <div class="SearchContainer">
+        <asp:GridView runat="server" ID="gvAlbum" CssClass="GridView" ForeColor="White" />
+        <asp:GridView runat="server" ID="gvArtist" CssClass="GridView" ForeColor="White" />
+        <asp:GridView runat="server" ID="gvTrack" CssClass="GridView" ForeColor="White" />
+    </div>
 
 </asp:Content>
