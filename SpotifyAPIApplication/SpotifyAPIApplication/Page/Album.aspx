@@ -6,7 +6,11 @@
             <asp:Image runat="server" ID="imgAlbumCover"/>
         </div>
         <div id="divListTracks">
-            
+            <section class="tracklist-container">
+                <ol class="tracklist" id="olTracks" runat="server">
+
+                </ol>
+            </section>
         </div>
     </div>
 </asp:Content>

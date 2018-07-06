@@ -13,6 +13,7 @@ using System.Net;
 using System.IO;
 using System.Web.Script.Serialization;
 using SpotifyAPIApplication.Classes;
+using System.Web.UI.HtmlControls;
 
 namespace SpotifyAPIApplication
 {
@@ -34,6 +35,21 @@ namespace SpotifyAPIApplication
             //OUTPUT OF ELEMENTS
             imgAlbumCover.ImageUrl = albumResult.images[0].url;
             imgAlbumCover.Width = 300;
+
+            foreach (var track in albumResult.tracks.items)
+            {
+                HtmlGenericControl div = new HtmlGenericControl("div");
+                olTracks.Controls.Add(div);
+
+                HtmlGenericControl li = new HtmlGenericControl("li");
+                div.Controls.Add(li);
+
+                HtmlGenericControl divName = new HtmlGenericControl("div");
+                divName.Attributes.Add("text", track.name);
+                li.Controls.Add(divName);
+                
+                
+            }
         }
     }
 }
