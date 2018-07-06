@@ -27,5 +27,20 @@ namespace SpotifyAPIApplication.Classes
 
             return result;
         }
+        public static string respTopTracks (string albumID, SpotifyWebAPI _spotify, string link)
+        {
+            string url = string.Format(link + albumID + "/top-tracks?country=US");
+            var webrequest = (HttpWebRequest)WebRequest.CreateHttp(url);
+            webrequest.Method = "GET";
+            webrequest.Headers.Add("Authorization", "Bearer " + _spotify.AccessToken);
+
+            WebResponse webresponse = (HttpWebResponse)webrequest.GetResponse();
+
+            Stream responseStream = webresponse.GetResponseStream();
+            StreamReader reader = new StreamReader(responseStream);
+            string result = reader.ReadToEnd();
+
+            return result;
+        }
     }
 }
