@@ -24,64 +24,12 @@ namespace SpotifyAPIApplication
             string artistID;
             artistID = Request.QueryString["artist"];
 
-            AsyncContext.Run(() => MainAsync());
+            _spotify = Default._spotify;
 
-            string url = string.Format("https://api.spotify.com/v1/artists/" + artistID);
-            var webrequest = (HttpWebRequest)WebRequest.CreateHttp(url);
-            webrequest.Method = "GET";
-            webrequest.Headers.Add("Authorization", "Bearer " + _spotify.AccessToken);
+            string result = SpotifyResponse.respAlbum(artistID, _spotify, "https://api.spotify.com/v1/artists/");
+            var artistResult = new JavaScriptSerializer().Deserialize<ResArtist.RootObject>(result);
 
-            try
-            {
-                WebResponse webresponse = (HttpWebResponse)webrequest.GetResponse();
-
-                Stream responseStream = webresponse.GetResponseStream();
-                StreamReader reader = new StreamReader(responseStream);
-                string result = reader.ReadToEnd();
-
-                var artistResult = new JavaScriptSerializer().Deserialize<ResArtist.RootObject>(result);
-
-                //OUTPUT OF ELEMENTS
-                txtBox.Text = artistResult.name;
-
-            }
-            catch (WebException ex)
-            {
-                if (ex.Response != null)
-                {
-                    using (var errorResponse = (HttpWebResponse)ex.Response)
-                    {
-                        using (var reader = new StreamReader(errorResponse.GetResponseStream()))
-                        {
-                            string error = reader.ReadToEnd();
-                            //TODO: use JSON.net to parse this string and look at the error message
-                            txtBox.Text = error;
-                        }
-                    }
-                }
-            }
-        }
-        static async void MainAsync()
-        {
-            WebAPIFactory webApiFactory = new WebAPIFactory(
-                "http://localhost/",
-                8000,
-                "6bf25efedbd74e0b905868f562b82fee",
-                Scope.UserReadPrivate,
-                TimeSpan.FromSeconds(20)
-                );
-
-            try
-            {
-                _spotify = await webApiFactory.GetWebApi();
-            }
-            catch (Exception)
-            {
-
-            }
-
-            if (_spotify == null)
-                return;
+            
         }
     }
 }

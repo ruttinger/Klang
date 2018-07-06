@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ResArtist.cs" />
+    <Compile Include="Classes\SpotifyResponse.cs" />
     <Compile Include="Classes\ResTrack.cs" />
     <Compile Include="Page\Album.aspx.cs">
       <DependentUpon>Album.aspx</DependentUpon>

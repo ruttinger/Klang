@@ -15,17 +15,23 @@
 </head>
 <body>
     <form id="mainForm" runat="server">
-        <div>
+        <div style="height:100%">
             <header>
                 <div>
-                    <img id="imgLogo" src="https://cdn.freebiesupply.com/logos/large/2x/spotify-2-logo-png-transparent.png" width="40" height="40" />
-                    <h1 id="title">Klang</h1>
+                    
+                    
                 </div>
             </header>
             <aside>
                 <div>
                     <ul id="tabs">
                         <li>
+                            <img id="imgLogo" src="https://cdn.freebiesupply.com/logos/large/2x/spotify-2-logo-png-transparent.png" width="40" height="40" />
+                        </li>
+                        <li>
+                            <h1 id="title">Klang</h1>
+                        </li>
+                        <li class="tablink" id="tabSearch">
                             <asp:TextBox runat="server" ID="searchBar"  AutoCompleteType="Search" placeholder="Search..."/>
                             <asp:Button id="btnSearch" runat="server" Style="display: none" OnClick="btnSearch_Click"/>
                         </li>
@@ -47,11 +53,6 @@
             <article id="mainArticle">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
             </article>
-            <footer>
-                <div>
-                    <img id="playButton" src="http://www.lynnettechadwick.com/wp-content/uploads/2015/04/play-button.png" width="30" height="30" onclick="playSong();" />
-                </div>
-            </footer>
         </div>
     </form>
 </body>

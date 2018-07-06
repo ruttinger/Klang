@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Nito.AsyncEx;
+using SpotifyAPI.Web;
+using SpotifyAPI.Web.Auth;
+using SpotifyAPI.Web.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,11 +13,12 @@ namespace SpotifyAPIApplication
 {
     public partial class yoda : System.Web.UI.MasterPage
     {
+        
         string prevSearch;
         protected void Page_Load(object sender, EventArgs e)
         {
         }
-
+        
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             

@@ -12,6 +12,7 @@ using SpotifyAPI.Web.Enums;
 using System.Net;
 using System.IO;
 using System.Web.Script.Serialization;
+using SpotifyAPIApplication.Classes;
 
 namespace SpotifyAPIApplication
 {
@@ -25,65 +26,14 @@ namespace SpotifyAPIApplication
             string albumID;
             albumID = Request.QueryString["album"];
 
-            AsyncContext.Run(() => MainAsync());
+            _spotify = Default._spotify;
 
-            string url = string.Format("https://api.spotify.com/v1/albums/"+albumID);
-            var webrequest = (HttpWebRequest)WebRequest.CreateHttp(url);
-            webrequest.Method = "GET";
-            webrequest.Headers.Add("Authorization", "Bearer " + _spotify.AccessToken);
+            string result = SpotifyResponse.respAlbum(albumID, _spotify, "https://api.spotify.com/v1/albums/");
+            var albumResult = new JavaScriptSerializer().Deserialize<ResAlbum.RootObject>(result);
 
-            try
-            {
-                WebResponse webresponse = (HttpWebResponse)webrequest.GetResponse();
-
-                Stream responseStream = webresponse.GetResponseStream();
-                StreamReader reader = new StreamReader(responseStream);
-                string result = reader.ReadToEnd();
-                
-                var albumResult = new JavaScriptSerializer().Deserialize<ResAlbum.RootObject>(result);
-
-                //OUTPUT OF ELEMENTS
-                imgAlbum.ImageUrl = albumResult.images[0].url;
-            }
-            catch (WebException ex)
-            {
-                if(ex.Response != null)
-                {
-                    using (var errorResponse = (HttpWebResponse)ex.Response)
-                    {
-                        using (var reader = new StreamReader(errorResponse.GetResponseStream()))
-                        {
-                            string error = reader.ReadToEnd();
-                            //TODO: use JSON.net to parse this string and look at the error message
-                            
-                        }
-                    }
-                }
-            }
-            
-        }
-
-        static async void MainAsync()
-        {
-            WebAPIFactory webApiFactory = new WebAPIFactory(
-                "http://localhost/",
-                8000,
-                "6bf25efedbd74e0b905868f562b82fee",
-                Scope.UserReadPrivate,
-                TimeSpan.FromSeconds(20)
-                );
-
-            try
-            {
-                _spotify = await webApiFactory.GetWebApi();
-            }
-            catch (Exception)
-            {
-
-            }
-
-            if (_spotify == null)
-                return;
+            //OUTPUT OF ELEMENTS
+            imgAlbumCover.ImageUrl = albumResult.images[0].url;
+            imgAlbumCover.Width = 300;
         }
     }
 }
